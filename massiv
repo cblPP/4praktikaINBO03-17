@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+double* mem(double *a, int b)
+{
+	a = new double[b];
+	return a;
+}
+
+void data(double* a, int b)
+{
+	for (int i=0; i<b;i++)
+	{
+		cout << "darr[" << i << "]= ";
+		cin >> a[i];
+	}
+
+	
+}
+void show(double* a, int b)
+{
+	for (int i=0;i<b;i++)
+	cout << a[i] << " ";
+}
+
+double *clear(double *a)
+{
+ delete[] a;
+ a=0;
+ return a;
+	
+}
+
+main()
+{
+	int size;
+	double *darr;
+	bool choice=0;
+	
+	do 
+	{
+	cout << "Vvedite razmer massiva: " << endl; 
+
+	cin >> size;
+	
+	darr= mem(darr, size);
+
+	data(darr, size);
+	
+	show(darr,size);
+	
+	darr=clear(darr);
+	
+	cout << "Continue?   1 - YES       0 - NO" << endl;
+	cin >> choice;
+	}
+	while (choice!=0);
+	return 0;
+}
